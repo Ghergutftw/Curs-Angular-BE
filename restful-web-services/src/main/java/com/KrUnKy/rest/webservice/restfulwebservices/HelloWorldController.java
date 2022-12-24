@@ -1,7 +1,5 @@
 package com.KrUnKy.rest.webservice.restfulwebservices;
 
-import jakarta.websocket.server.PathParam;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -9,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 public class HelloWorldController {
 
     @GetMapping(path = "/hello/{name}")
-    public String helloWorld(@PathVariable String name){
-        return String.format("Hello : %s", name);
+    public HelloWorldBean helloWorld(@PathVariable String name){
+        return new HelloWorldBean(String.format("Hello : %s " , name));
     }
 
     @GetMapping(path = "/hello-bean")
